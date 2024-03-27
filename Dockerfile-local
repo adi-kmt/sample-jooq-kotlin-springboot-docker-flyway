@@ -1,4 +1,4 @@
-FROM amazoncorretto:21-alpine-jdk AS builder
+FROM openjdk:17-alpine AS builder
 
 RUN apk --no-cache add make
 
@@ -8,11 +8,11 @@ WORKDIR /app
 # Copy built JAR from the builder stage
 COPY . .
 
-ENV DEMO_ENV=prod
+ENV DEMO_ENV=local
 
 RUN ./gradlew build -x test --no-daemon
 
-FROM amazoncorretto:21-alpine-jdk
+FROM openjdk:17-alpine
 
 WORKDIR /app
 

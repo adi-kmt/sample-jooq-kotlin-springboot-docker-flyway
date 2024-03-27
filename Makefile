@@ -11,12 +11,12 @@ confirm:
 ## start/db: start local database
 .PHONY: start/db
 start/db:
-	@docker-compose up -d
+	@docker compose up -d
 
 ## stop/db: stop local database
 .PHONY: stop/db
 stop/db:
-	@docker-compose down
+	@docker compose down
 
 ## generate/jooq: generate jooq classes
 .PHONY: generate/jooq

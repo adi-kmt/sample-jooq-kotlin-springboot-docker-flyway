@@ -30,7 +30,7 @@ version = "0.0.1-SNAPSHOT"
 ext["jooq.version"] = jooq.version.get()
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_17
 }
 
 buildscript {
@@ -78,7 +78,7 @@ dependencies {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs += "-Xjsr305=strict"
-        jvmTarget = "21"
+        jvmTarget = "17"
     }
 }
 
@@ -159,7 +159,7 @@ jooq {
 tasks.named<JooqGenerate>("generateJooq") {
     (launcher::set)(javaToolchains.launcherFor {
         dependsOn(tasks.named("flywayMigrate"))
-        languageVersion.set(JavaLanguageVersion.of(21))
+        languageVersion.set(JavaLanguageVersion.of(17))
         doLast {
             containerInstance?.stop()
         }
