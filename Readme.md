@@ -41,6 +41,11 @@ make run/image/prod
 ## Notes
 - There is a compose.yml to run postgresql locally, you can start it by `make start/db`
 
+For multi-container docker to get psql commandline
+```bash
+docker exec -it psql_docker_name psql -U user -W database_name
+```
+
 # Next Steps
 - [ ] Add a CI/CD pipeline with Github Actions
 - [ ] Figure out testing, both unit and integration tests (using testcontainers)
